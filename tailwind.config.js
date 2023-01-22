@@ -15,7 +15,7 @@ module.exports = {
             colors: {
                 'bg-dark': 'rgba(16,16,16,255)',
                 'app-green': 'rgba(0,255,184,255)',
-                'app-green': 'rgba(135,135,135,255)',
+                'app-gray': 'rgba(135,135,135,255)',
                 'app-dark': 'rgba(21,21,21,255)',
             },
         },

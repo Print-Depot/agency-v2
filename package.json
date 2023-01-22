@@ -1,21 +1,25 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.2.0",
-    "@tailwindcss/line-clamp": "^0.4.2",
-    "eslint": "^8.32.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.9.0",
-    "nuxt": "^3.0.0",
-    "prettier": "^2.8.3"
-  }
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "devDependencies": {
+        "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
+        "@nuxtjs/tailwindcss": "^6.2.0",
+        "@tailwindcss/line-clamp": "^0.4.2",
+        "eslint": "^8.32.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-nuxt": "^4.0.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-vue": "^9.9.0",
+        "nuxt": "^3.0.0",
+        "prettier": "^2.8.3"
+    },
+    "dependencies": {
+        "@vueuse/motion": "^2.0.0-beta.23"
+    }
 }
