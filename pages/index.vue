@@ -1,7 +1,8 @@
 <template>
-    <section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus culpa labore eaque magnam nemo quidem
-        laudantium! Eveniet, ipsa in facilis voluptate ullam ab sapiente, qui numquam voluptatem veritatis perspiciatis
-        iste?
+    <section class="w-full flex flex-col gap-y-2 py-2">
+        <ContentsHeroComponent />
+        <ContentsProjectsComponent />
+        <ContentsWhatWeDoComponent />
+        <ContentsExpertiseComponent />
     </section>
 </template>

@@ -1,11 +1,11 @@
 <template>
-    <nav class="w-full flex-col py-3.5">
+    <nav class="w-full flex-col py-3.5 px-24 2xl:px-32">
         <div class="w-full flex flex-row justify-between items-center">
             <div class="logo flex items-center">
-                <nuxt-img src="/dark-logo.png" class="h-20" />
+                <nuxt-img src="/dark-logo-removebg.png" class="h-20" />
             </div>
             <div class="right-nav flex flex-row items-center text-app-gray">
-                <ul class="flex items-center flex-row gap-x-8">
+                <ul class="flex items-center flex-row gap-x-12">
                     <li>about</li>
                     <li>work</li>
                     <li>capabilities</li>
@@ -23,6 +23,24 @@
 </template>
 <style scoped>
 .right-nav ul li {
-    @apply text-base flex flex-row gap-x-1 items-center px-1 capitalize last:text-app-green last:font-semibold;
+    @apply text-base flex flex-row gap-x-1 items-center pl-0.5 pr-2 pb-1 cursor-pointer hover:text-white capitalize font-medium last:text-app-green hover:last:text-app-green last:text-sm last:font-semibold;
+    @apply transition duration-200;
+}
+
+.right-nav ul li {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 0.2s;
+}
+.right-nav ul li:last-child,
+.right-nav ul li:last-child:hover,
+.right-nav ul li:last-child:focus {
+    background-size: 0%;
+}
+.right-nav ul li:hover,
+.right-nav ul li:focus {
+    background-size: 100% 2px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <main class="w-full h-full flex flex-col">
-        <section class="w-full flex flex-col px-24">
+        <section class="w-full flex flex-col">
             <NavBar />
             <slot />
         </section>
