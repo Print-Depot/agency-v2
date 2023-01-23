@@ -6,9 +6,23 @@
             </div>
             <div id="projects" class="col-span-9 flex flex-col items-start">
                 <h2 class="uppercase text-2xl sm:text-4xl lg:text-5xl relative font-bold pr-4">our projects</h2>
-                <div class="w-full mt-6 sm:mt-12 grid lg:grid-cols-2">
+                <div
+                    class="w-full mt-6 sm:mt-12 grid lg:grid-cols-2"
+                    v-motion
+                    :initial="{
+                        opacity: 0,
+                        x: 50,
+                    }"
+                    :enter="{
+                        opacity: 1,
+                        x: 0,
+                        transition: {
+                            delay: 400,
+                        },
+                    }"
+                >
                     <p class="text-app-gray text-base lg:text-lg">
-                        We have had the pleasure of working with a few range of clients, delivering custom web and app
+                        We have had the pleasure of working with a range of clients, delivering custom web and app
                         development solutions that exceed their expectations and are really proud of what we've achieved
                         together.
                     </p>
