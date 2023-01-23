@@ -1,32 +1,32 @@
 <template>
-    <div class="w-full flex flex-col gap-y-2 mt-20 px-24 2xl:px-32">
-        <div class="w-full grid grid-cols-10">
-            <div class="content-index col-span-1 text-app-gray text-5xl font-bold italic">
+    <div class="w-full flex flex-col gap-y-2 mt-12 sm:mt-20 px-4 lg:px-8 xl:px-24 2xl:px-32">
+        <div class="w-full flex flex-col gap-y-3 sm:grid grid-cols-10">
+            <div class="content-index col-span-1 text-app-gray text-2xl sm:text-4xl lg:text-5xl font-bold italic">
                 <p>03</p>
             </div>
             <div id="capabilities" class="col-span-9 flex flex-col items-start">
-                <h2 class="uppercase text-5xl font-bold relative pr-3">what we do</h2>
+                <h2 class="uppercase text-2xl sm:text-4xl lg:text-5xl font-bold relative pr-3">what we do</h2>
             </div>
         </div>
-        <div class="w-full grid grid-cols-10 py-6 mt-4">
-            <div class="col-span-3"></div>
-            <ul class="col-span-7 flex flex-col">
+        <div class="w-full flex flex-col sm:grid grid-cols-10 py-6 mt-4">
+            <div class="col-span-2 lg:col-span-3 hidden sm:block"></div>
+            <ul class="col-span-8 lg:col-span-7 flex flex-col sm:pr-4 lg:pr-0">
                 <li>
-                    <div class="flex items-center justify-between flex-row py-3">
+                    <div class="flex items-center justify-between flex-row py-2 sm:py-3">
                         <h4>Web design & development</h4>
                         <div class="flex flex-row items-center">
-                            <div class="w-7 h-7">
+                            <div class="w-5 sm:w-7 h-5 sm:h-7">
                                 <IconsChevronDown />
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-y-2.5 py-4">
-                        <p class="text-app-gray text-base">
+                    <div class="flex flex-col gap-y-2.5 py-3 lg:py-4">
+                        <p class="text-app-gray text-sm lg:text-base">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius sequi aliquam mollitia
                             adipisci inventore et autem dolorem dolore optio beatae aliquid cum magnam quia ratione,
                             minus debitis voluptas recusandae nostrum?
                         </p>
-                        <p class="text-app-gray text-base">
+                        <p class="text-app-gray text-sm lg:text-base">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius sequi aliquam mollitia
                             adipisci inventore et autem dolorem dolore optio beatae aliquid cum magnam quia ratione,
                             minus debitis voluptas recusandae nostrum?
@@ -34,30 +34,30 @@
                     </div>
                 </li>
                 <li>
-                    <div class="flex items-center justify-between flex-row py-3">
+                    <div class="flex items-center justify-between flex-row py-2 sm:py-3">
                         <h4>Brand Design</h4>
                         <div class="flex flex-row items-center">
-                            <div class="w-7 h-7">
+                            <div class="w-5 sm:w-7 h-5 sm:h-7">
                                 <IconsChevronDown />
                             </div>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="flex items-center justify-between flex-row py-3">
+                    <div class="flex items-center justify-between flex-row py-2 sm:py-3">
                         <h4>Ecommerce website</h4>
                         <div class="flex flex-row items-center">
-                            <div class="w-7 h-7">
+                            <div class="w-5 sm:w-7 h-5 sm:h-7">
                                 <IconsChevronDown />
                             </div>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="flex items-center justify-between flex-row py-3">
+                    <div class="flex items-center justify-between flex-row py-2 sm:py-3">
                         <h4>IT Systems & Support</h4>
                         <div class="flex flex-row items-center">
-                            <div class="w-7 h-7">
+                            <div class="w-5 sm:w-7 h-5 sm:h-7">
                                 <IconsChevronDown />
                             </div>
                         </div>
@@ -79,10 +79,10 @@
     @apply bg-white;
 }
 ul li {
-    @apply border-t border-white w-full py-6;
+    @apply border-t border-gray-500 w-full py-2 sm:py-4 lg:py-6;
 }
 ul li h4 {
-    @apply text-3xl font-light capitalize px-8 relative flex items-center;
+    @apply text-xl sm:text-2xl lg:text-3xl font-light capitalize px-5 sm:px-8 relative flex items-center;
 }
 ul li:nth-child(1) h4 {
     @apply text-app-green;

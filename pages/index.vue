@@ -4,5 +4,7 @@
         <ContentsProjectsComponent />
         <ContentsWhatWeDoComponent />
         <ContentsExpertiseComponent />
+        <ContentsClientReviewsComponent />
+        <ContentsContactComponent />
     </section>
 </template>

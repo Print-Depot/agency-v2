@@ -1,10 +1,12 @@
 <template>
-    <nav class="w-full flex-col py-3.5 px-24 2xl:px-32">
+    <nav
+        class="w-full flex-col py-2.5 sm:py-3.5 px-4 lg:px-8 xl:px-24 2xl:px-32 border-b border-gray-700 md:border-none"
+    >
         <div class="w-full flex flex-row justify-between items-center">
             <div class="logo flex items-center">
-                <nuxt-img src="/dark-logo-removebg.png" class="h-20" />
+                <nuxt-img src="/dark-logo-removebg.png" class="h-14 sm:h-16 lg:h-20" />
             </div>
-            <div class="right-nav flex flex-row items-center text-app-gray">
+            <div class="right-nav hidden lg:flex flex-row items-center text-app-gray">
                 <ul class="flex items-center flex-row gap-x-12">
                     <li>about</li>
                     <li>work</li>
@@ -17,6 +19,11 @@
                         +254 794818111
                     </li>
                 </ul>
+            </div>
+            <div id="mobile-menu" class="flex md:hidden items-center flex-row pr-2">
+                <button class="w-8 h-8 hover:ring-1 focus:ring-1 ring-gray-600 rounded p-0.5 transition duration-200">
+                    <icons-bars />
+                </button>
             </div>
         </div>
     </nav>
