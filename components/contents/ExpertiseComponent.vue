@@ -1,3 +1,38 @@
+<script setup lang="ts">
+const imageref = ref<HTMLElement>()
+const imageloader = ref<boolean>(false)
+
+const floatref = ref<HTMLElement>()
+const floatloader = ref<boolean>(false)
+
+onMounted(() => {
+    const imageObs = new IntersectionObserver(
+        (entry) => {
+            if (entry[0].isIntersecting) {
+                imageloader.value = true
+                imageObs.unobserve(entry[0].target)
+            }
+        },
+        {
+            threshold: 0.3,
+        }
+    )
+    imageObs.observe(imageref.value as Element)
+
+    const floatObs = new IntersectionObserver(
+        (entry) => {
+            if (entry[0].isIntersecting) {
+                floatloader.value = true
+                floatObs.unobserve(entry[0].target)
+            }
+        },
+        {
+            threshold: 0.5,
+        }
+    )
+    floatObs.observe(floatref.value as Element)
+})
+</script>
 <template>
     <div class="px-4 lg:px-8 xl:px-24 2xl:px-32 pt-4 sm:pt-8 pb-0 sm:pb-16 flex flex-col bg-app-dark">
         <div class="w-full flex flex-col gap-y-3 sm:grid grid-cols-10">
@@ -11,7 +46,11 @@
         <div
             class="w-full flex flex-col sm:grid sm:grid-cols-2 gap-x-8 mt-2 sm:mt-8 pt-8 lg:pt-10 pb-20 px-2 sm:px-10 relative"
         >
-            <div class="flex flex-col justify-end items-end">
+            <div
+                ref="imageref"
+                class="flex flex-col justify-end items-end transition duration-500"
+                :class="imageloader ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
+            >
                 <NuxtImg src="/dev.webp" class="rounded-sm lg:max-w-[86%] opacity-40 sm:opacity-100" />
             </div>
             <div class="flex pt-8 lg:pt-16 flex-col absolute sm:relative top-[10%] sm:top-0 left-0 right-0">
@@ -29,7 +68,9 @@
                 </div>
             </div>
             <div
-                class="sm:absolute -translate-y-[20%] translate-x-2 sm:translate-x-0 sm:translate-y-0 right-[8%] lg:right-[10%] left-[40%] -bottom-8 py-5 sm:py-0 sm:min-h-[220px] lg:min-h-[300px] bg-app-green rounded-sm text-bg-dark flex flex-col items-start justify-center px-2.5 sm:px-12"
+                ref="floatref"
+                class="sm:absolute -translate-y-[20%] translate-x-2 sm:translate-x-0 sm:translate-y-0 right-[8%] lg:right-[10%] left-[40%] -bottom-8 py-5 sm:py-0 sm:min-h-[220px] lg:min-h-[300px] bg-app-green rounded-sm text-bg-dark flex flex-col items-start justify-center px-2.5 sm:px-12 transition duration-500"
+                :class="floatloader ? 'scale-100 opacity-100' : 'scale-0 opacity-0'"
             >
                 <h4
                     class="text-xl sm:text-2xl lg:text-3xl font-semibold relative tracking-wide px-4 sm:px-6 flex items-center before:bg-app-dark"

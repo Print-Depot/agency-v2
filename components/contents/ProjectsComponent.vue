@@ -1,3 +1,38 @@
+<script setup lang="ts">
+const projectref1 = ref<HTMLElement>()
+const projectloader1 = ref<boolean>(false)
+
+const projectref2 = ref<HTMLElement>()
+const projectloader2 = ref<boolean>(false)
+
+onMounted(() => {
+    const project1Obs = new IntersectionObserver(
+        (entry) => {
+            if (entry[0].isIntersecting) {
+                projectloader1.value = true
+                project1Obs.unobserve(entry[0].target)
+            }
+        },
+        {
+            threshold: 0.5,
+        }
+    )
+    project1Obs.observe(projectref1.value as Element)
+
+    const project2Obs = new IntersectionObserver(
+        (entry) => {
+            if (entry[0].isIntersecting) {
+                projectloader2.value = true
+                project2Obs.unobserve(entry[0].target)
+            }
+        },
+        {
+            threshold: 0.5,
+        }
+    )
+    project2Obs.observe(projectref2.value as Element)
+})
+</script>
 <template>
     <div class="w-full flex flex-col gap-y-2 mt-10 sm:mt-14 lg:mt-20 px-4 lg:px-8 xl:px-24 2xl:px-32">
         <div class="w-full flex flex-col gap-y-3 sm:grid grid-cols-10">
@@ -6,22 +41,8 @@
             </div>
             <div id="projects" class="col-span-9 flex flex-col items-start">
                 <h2 class="uppercase text-2xl sm:text-4xl lg:text-5xl relative font-bold pr-4">our projects</h2>
-                <div
-                    class="w-full mt-6 sm:mt-12 grid lg:grid-cols-2"
-                    v-motion
-                    :initial="{
-                        opacity: 0,
-                        x: 50,
-                    }"
-                    :enter="{
-                        opacity: 1,
-                        x: 0,
-                        transition: {
-                            delay: 400,
-                        },
-                    }"
-                >
-                    <p class="text-app-gray text-base lg:text-lg">
+                <div class="w-full mt-6 sm:mt-12 grid lg:grid-cols-2">
+                    <p class="text-app-gray text-base lg:text-lg transition duration-500">
                         We have had the pleasure of working with a range of clients, delivering custom web and app
                         development solutions that exceed their expectations and are really proud of what we've achieved
                         together.
@@ -50,11 +71,19 @@
             </div>
         </div>
         <div
+            ref="projectref1"
             class="w-full grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8 lg:gap-x-16 mt-2 lg:mt-10 px-2 sm:px-6 py-8 sm:py-12 relative"
         >
-            <div id="absolute-style" class="absolute top-0 bottom-0 right-0 left-[20%] -z-20 bg-app-dark rounded"></div>
+            <div
+                id="absolute-style"
+                class="absolute top-0 bottom-0 right-0 left-[20%] -z-20 bg-app-dark rounded transition duration-500"
+                :class="projectloader1 ? 'opacity-100' : 'opacity-0'"
+            ></div>
             <div class="project">
-                <div class="project-context w-full flex flex-col gap-y-3">
+                <div
+                    class="project-context w-full flex flex-col gap-y-3 transition duration-500"
+                    :class="projectloader1 ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'"
+                >
                     <h3>
                         hotel reservation <br />
                         website
@@ -64,12 +93,18 @@
                         software design
                     </p>
                 </div>
-                <div class="project-display">
+                <div
+                    class="project-display transition duration-500"
+                    :class="projectloader1 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'"
+                >
                     <NuxtImg src="/home-project.webp" class="w-full h-full" />
                 </div>
             </div>
-            <div class="project">
-                <div class="project-context w-full flex flex-col gap-y-3">
+            <div class="project" ref="projectref2">
+                <div
+                    class="project-context w-full flex flex-col gap-y-3 transition duration-500"
+                    :class="projectloader2 ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'"
+                >
                     <h3>
                         Law Firm <br />
                         website
@@ -79,7 +114,10 @@
                         software design
                     </p>
                 </div>
-                <div class="project-display">
+                <div
+                    class="project-display transition duration-500"
+                    :class="projectloader2 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'"
+                >
                     <NuxtImg src="/law-firm-1.webp" class="w-full h-full" />
                 </div>
             </div>
