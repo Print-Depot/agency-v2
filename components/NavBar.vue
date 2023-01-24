@@ -84,31 +84,33 @@ const showdropdown = ref<boolean>(false)
                 </div>
             </div>
         </transition>
-        <div
-            v-if="showdropdown"
-            id="mobile-dropdown"
-            class="fixed md:hidden z-40 top-0 left-0 right-0 min-h-[10rem] bg-bg-dark shadow-xl border-b border-gray-600 flex flex-col gap-y-2"
-        >
-            <div class="w-full px-4 py-2.5 flex flex-row justify-between items-center bg-app-dark">
-                <div class="logo flex items-center">
-                    <nuxt-img src="/dark-logo-removebg.png" class="h-12" />
+        <transition name="show-dropdown">
+            <div
+                v-if="showdropdown"
+                id="mobile-dropdown"
+                class="fixed md:hidden z-40 top-0 left-0 right-0 min-h-[10rem] bg-bg-dark shadow-xl border-b border-gray-600 flex flex-col gap-y-2"
+            >
+                <div class="w-full px-4 py-2.5 flex flex-row justify-between items-center bg-app-dark">
+                    <div class="logo flex items-center">
+                        <nuxt-img src="/dark-logo-removebg.png" class="h-12" />
+                    </div>
+                    <div id="mobile-menu" class="flex md:hidden items-center flex-row pr-2">
+                        <button
+                            @click="showdropdown = !showdropdown"
+                            class="w-8 h-8 hover:ring-1 focus:ring-1 ring-gray-600 rounded p-0.5 transition duration-200"
+                        >
+                            <icons-close />
+                        </button>
+                    </div>
                 </div>
-                <div id="mobile-menu" class="flex md:hidden items-center flex-row pr-2">
-                    <button
-                        @click="showdropdown = !showdropdown"
-                        class="w-8 h-8 hover:ring-1 focus:ring-1 ring-gray-600 rounded p-0.5 transition duration-200"
-                    >
-                        <icons-close />
-                    </button>
-                </div>
+                <ul class="w-full flex flex-col gap-y-0.5 py-1">
+                    <li>about</li>
+                    <li>work</li>
+                    <li>Technology</li>
+                    <li>contact</li>
+                </ul>
             </div>
-            <ul class="w-full flex flex-col gap-y-0.5 py-1">
-                <li>about</li>
-                <li>work</li>
-                <li>Technology</li>
-                <li>contact</li>
-            </ul>
-        </div>
+        </transition>
     </nav>
 </template>
 <style scoped>
@@ -135,7 +137,7 @@ const showdropdown = ref<boolean>(false)
 }
 
 #mobile-dropdown ul li {
-    @apply text-base capitalize tracking-wide py-3 px-4 flex flex-row items-center gap-x-2 cursor-pointer hover:px-6 hover:bg-app-dark transition duration-200 relative;
+    @apply text-lg capitalize tracking-wide py-3 px-4 flex flex-row items-center gap-x-2 cursor-pointer hover:px-6 hover:bg-app-dark transition duration-200 relative;
 }
 
 #mobile-dropdown ul li {
@@ -156,5 +158,16 @@ const showdropdown = ref<boolean>(false)
 .show-nav-enter-active,
 .show-nav-leave-active {
     @apply duration-300 transition;
+}
+
+.show-dropdown-enter-from {
+    @apply -translate-y-1/2 opacity-0;
+}
+.show-dropdown-leave-to {
+    @apply opacity-0;
+}
+.show-dropdown-enter-active,
+.show-dropdown-leave-active {
+    @apply transition duration-[0.4s];
 }
 </style>
