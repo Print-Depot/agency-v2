@@ -14,8 +14,16 @@
                 </div>
             </div>
         </div>
-        <ul class="w-full flex flex-col gap-y-2">
-            <li class="py-8 border-y border-app-dark grid grid-cols-3 gap-x-4"></li>
+        <ul class="w-full grid grid-cols-3 gap-x-2 md:gap-x-4 gap-y-2 py-5 sm:py-8 border-y border-app-dark">
+            <li class="flex items-center">
+                <NuxtImg src="/kaba.png" loading="lazy" class="h-[1.4rem] sm:h-[3rem] grayscale" />
+            </li>
+            <li class="flex items-center justify-center">
+                <NuxtImg src="/healthit.png" loading="lazy" class="h-[1.4rem] sm:h-[3rem] grayscale" />
+            </li>
+            <li class="flex items-center justify-end">
+                <NuxtImg src="/Nipate.f454a4be.svg" loading="lazy" class="h-[1.4rem] sm:h-[3rem] grayscale" />
+            </li>
         </ul>
     </div>
 </template>
