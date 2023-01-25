@@ -7,11 +7,11 @@ useHead({
             content: 'We specialize in creating custom websites and web applications for businesses of all sizes.',
         },
     ],
-    link: [
-        { href: 'https://fonts.googleapis.com', rel: 'preconnect' },
-        { href: 'https://fonts.gstatic.com', rel: 'preconnect' },
-        { href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet' },
-    ],
+    // link: [
+    //     { href: 'https://fonts.googleapis.com', rel: 'preconnect' },
+    //     { href: 'https://fonts.gstatic.com', rel: 'preconnect' },
+    //     { href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet' },
+    // ],
 })
 </script>
 <template>
@@ -27,7 +27,7 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
 }
 html {
     @apply bg-bg-dark text-white;

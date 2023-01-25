@@ -1,4 +1,8 @@
 <script setup lang="ts">
+const emits = defineEmits<{
+    (e: 'scrollInto', payload: string): void
+}>()
+
 const navbarstate = ref<boolean>(false)
 const handleScroll = (): void => {
     if (process.client) {
@@ -15,6 +19,17 @@ if (process.client) {
     window.addEventListener('scroll', handleScroll)
 }
 
+const scrollFunction = (payload: string): void => {
+    emits('scrollInto', payload)
+}
+
+const mobileScrollFunction = (payload: string): void => {
+    emits('scrollInto', payload)
+    setTimeout(() => {
+        showdropdown.value = false
+    }, 400)
+}
+
 const showdropdown = ref<boolean>(false)
 </script>
 <template>
@@ -24,14 +39,19 @@ const showdropdown = ref<boolean>(false)
         >
             <div class="w-full flex flex-row justify-between items-center bg-transparent">
                 <div class="logo flex items-center">
-                    <nuxt-img src="/dark-logo-removebg.png" class="h-12 md:h-16 lg:h-20" />
+                    <nuxt-img
+                        src="/dark-logo-removebg.png"
+                        class="h-12 md:h-16 lg:h-20 cursor-pointer"
+                        @click="scrollFunction('hero')"
+                    />
                 </div>
                 <div class="right-nav hidden md:flex flex-row items-center text-app-gray">
                     <ul class="flex items-center flex-row gap-x-6 lg:gap-x-12">
-                        <li>about</li>
-                        <li>work</li>
-                        <li>Technology</li>
-                        <li>contact</li>
+                        <li @click="scrollFunction('about')">about</li>
+                        <li @click="scrollFunction('projects')">projects</li>
+                        <li @click="scrollFunction('experience')">Technology</li>
+                        <li @click="scrollFunction('reviews')">reviews</li>
+                        <li @click="scrollFunction('contacts')">contact</li>
                         <li>
                             <div class="w-5 h-5">
                                 <icons-mobile />
@@ -57,14 +77,19 @@ const showdropdown = ref<boolean>(false)
             >
                 <div class="w-full flex flex-row justify-between items-center bg-transparent">
                     <div class="logo flex items-center">
-                        <nuxt-img src="/dark-logo-removebg.png" class="h-12 md:h-16 lg:h-20" />
+                        <nuxt-img
+                            src="/dark-logo-removebg.png"
+                            class="h-12 md:h-16 lg:h-20 cursor-pointer"
+                            @click="scrollFunction('hero')"
+                        />
                     </div>
                     <div class="right-nav hidden md:flex flex-row items-center text-app-gray">
                         <ul class="flex items-center flex-row gap-x-6 lg:gap-x-12">
-                            <li>about</li>
-                            <li>work</li>
-                            <li>Technology</li>
-                            <li>contact</li>
+                            <li @click="scrollFunction('about')">about</li>
+                            <li @click="scrollFunction('projects')">projects</li>
+                            <li @click="scrollFunction('experience')">Technology</li>
+                            <li @click="scrollFunction('reviews')">reviews</li>
+                            <li @click="scrollFunction('contacts')">contact</li>
                             <li>
                                 <div class="w-5 h-5">
                                     <icons-mobile />
@@ -104,10 +129,11 @@ const showdropdown = ref<boolean>(false)
                     </div>
                 </div>
                 <ul class="w-full flex flex-col gap-y-0.5 py-1">
-                    <li>about</li>
-                    <li>work</li>
-                    <li>Technology</li>
-                    <li>contact</li>
+                    <li @click="mobileScrollFunction('about')">about</li>
+                    <li @click="mobileScrollFunction('projects')">projects</li>
+                    <li @click="mobileScrollFunction('experience')">Technology</li>
+                    <li @click="mobileScrollFunction('reviews')">reviews</li>
+                    <li @click="mobileScrollFunction('contacts')">contact</li>
                 </ul>
             </div>
         </transition>

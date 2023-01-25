@@ -168,7 +168,7 @@ const sendEmail = (): void => {
                             id="message"
                             rows="4"
                             class="block p-2.5 w-full text-sm text-gray-200 tracking-wide bg-app-dark rounded-lg border border-gray-500 focus:ring-1 focus:ring-app-green focus:outline-none focus:border-app-green transition duration-200"
-                            placeholder="Leave a comment (optional)..."
+                            placeholder="Project details(optional)..."
                             v-model="formdetails.message"
                         ></textarea>
                     </div>
